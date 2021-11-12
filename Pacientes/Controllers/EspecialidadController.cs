@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Pacientes.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,16 +9,19 @@ namespace Pacientes.Controllers
 {
     public class EspecialidadController : Controller
     {
-        public EspecialidadController()
+        private readonly TurnosContext _context;
+
+        public EspecialidadController(TurnosContext context)
         {
 
+            _context = context;
 
         }
 
-        
+
         public IActionResult Index()
         {
-            return View();
+            return View(_context.especialidad.ToList());
         }
     }
 }

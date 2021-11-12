@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<Pacientes.Models.especialidad>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,17 +7,19 @@
         <table>
             <thead>
                 <tr>
-                    <th>Descipcion</th>
+                    <th>@Html.DisplayNameFor(model => model.descripcion)</th>
                 </tr>
             </thead>
             <tbody>
                 @* aqui colocaremos mas adelante el codigo para mostrar los registrops de la base de datos     *@
-                <tr>
-                    <td>Traumatologo</td>
-                </tr>
-                <tr>
-                    <td>cardiologo</td>
-                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.descripcion)</td>
+                    </tr>
+
+                }
+
             </tbody>
         </table>
     </body>
